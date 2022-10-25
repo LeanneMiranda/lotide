@@ -16,9 +16,14 @@ const eqArrays = function(arr1, arr2) {
   }
   return true;
 };
-const assertArraysEqual = function(arr1, arr2) {
-  assertEqual(eqArrays(arr1, arr2), true); // => true
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+  }
 };
+
 const without = function(source, itemsToRemove) {
   const itemsToKeep = [];
 
