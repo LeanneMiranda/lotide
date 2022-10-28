@@ -1,11 +1,5 @@
-// assertEqual is supposed to compare 2 values (actual & expected) and if they match then give back a pretty msg and if they don't, a bad msg
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
+
 // eqArrays takes in 2 parameters (or arguments)
 const eqArrays = function(arr1, arr2) {
   // compare the 2 arguments to see if they are the same length, if they don't match, then return false
@@ -22,11 +16,4 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => true
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => false
-
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => true
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // => false
+module.exports = eqArrays;
